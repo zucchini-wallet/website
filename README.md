@@ -44,3 +44,9 @@ The PNG brand mark and icons were supplied by the Zucchini extension repository 
 ## Cloudflare Pages
 
 Deploy using `npx wrangler pages deploy dist --project-name zucchini-website --branch main`. The Pages project serves the committed static output directly. For Git integration, select this repository, use no framework/build command and set the output directory to `dist`.
+
+## Social previews
+
+`dist/assets/zucchini-social-v1.png` is the 1200 × 630 PNG used by Open Graph and X large-image cards on all three pages. Its reproducible source is `scripts/render-social-card.cjs` (requires Sharp). It preserves the supplied logo and uses the site’s typography and orbit styling.
+
+Canonical, Open Graph, and image URLs currently use the reachable Pages host. When connecting the custom domain, update them and the JSON-LD URL to `https://zucchinifi.xyz`, then recompute the JSON-LD CSP hash. The sitemap already targets the intended custom domain. Social platforms may cache previously scraped links.
