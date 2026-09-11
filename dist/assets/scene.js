@@ -10,7 +10,7 @@ export function mountScene(host) {
  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 700 ? 1.5 : 2));
  renderer.outputColorSpace = THREE.SRGBColorSpace;
  renderer.toneMapping = THREE.ACESFilmicToneMapping;
- renderer.toneMappingExposure = 1.45;
+ renderer.toneMappingExposure = 1.05;
  const scene = new THREE.Scene();
  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 50);
  camera.position.set(0, 0.05, 8.5);
@@ -30,7 +30,7 @@ export function mountScene(host) {
   positions.setX(i, positions.getX(i) + .52 * Math.sin(t * Math.PI * 1.12));
  }
  bodyGeometry.computeVertexNormals();
- const body = new THREE.Mesh(bodyGeometry, new THREE.MeshPhysicalMaterial({ color: 0xf4cb32, metalness: .22, roughness: .3, clearcoat: .45, clearcoatRoughness: .28, flatShading: true }));
+ const body = new THREE.Mesh(bodyGeometry, new THREE.MeshPhysicalMaterial({ color: 0xf4cb32, metalness: .08, roughness: .6, clearcoat: .12, clearcoatRoughness: .28, flatShading: true }));
  sculpture.add(body);
  const stem = new THREE.Mesh(new THREE.CylinderGeometry(.14, .2, .42, 7), new THREE.MeshStandardMaterial({ color: 0x3d6635, roughness: .72, flatShading: true }));
  stem.position.set(-.015, 1.87, 0); stem.rotation.z = .12; sculpture.add(stem);
@@ -38,14 +38,7 @@ export function mountScene(host) {
  collar.position.y = 1.68; sculpture.add(collar);
  sculpture.rotation.set(.07, -.28, .63);
  sculpture.position.set(-.2, .05, 0);
- const orbit = new THREE.Group(); scene.add(orbit);
- const ringMaterial = new THREE.MeshStandardMaterial({ color: 0xc2c8a5, metalness: .65, roughness: .35, transparent: true, opacity: .53 });
- const ring = new THREE.Mesh(new THREE.TorusGeometry(1.94, .018, 8, 180), ringMaterial);
- ring.rotation.set(1.05, -.3, -.4); orbit.add(ring);
- const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.12, .009, 8, 180), ringMaterial);
- ring2.rotation.set(1.25, .6, .2); orbit.add(ring2);
- const satellite = new THREE.Mesh(new THREE.IcosahedronGeometry(.1, 1), new THREE.MeshStandardMaterial({ color: 0xfce295, metalness: .6, roughness: .22 }));
- satellite.position.set(-1.7, -.8, .35); orbit.add(satellite);
+ sculpture.scale.setScalar(.78);
  scene.add(new THREE.HemisphereLight(0xfff9dc, 0x293121, 3));
  const key = new THREE.DirectionalLight(0xfff3d0, 6); key.position.set(-3, 5, 5); scene.add(key);
  const rim = new THREE.DirectionalLight(0xeaffc4, 3); rim.position.set(4, 2, -2); scene.add(rim);
@@ -60,11 +53,9 @@ export function mountScene(host) {
   lastTime = time;
   if (!paused && visible && !document.hidden) {
    elapsed += dt;
-   sculpture.rotation.y += ((-.28 + pointerX * .28 + Math.sin(elapsed*.35)*.1) - sculpture.rotation.y) * .045;
-   sculpture.rotation.x += ((pointerY * .14) - sculpture.rotation.x) * .045;
-   sculpture.position.y = .05 + Math.sin(elapsed*.85)*.09;
-   orbit.rotation.y = Math.sin(elapsed*.2)*.1;
-   orbit.rotation.z = elapsed*.035;
+   sculpture.rotation.y += ((-.28 + pointerX * .1 + Math.sin(elapsed*.25)*.03) - sculpture.rotation.y) * .045;
+   sculpture.rotation.x += ((pointerY * .06) - sculpture.rotation.x) * .045;
+   sculpture.position.y = .05 + Math.sin(elapsed*.6)*.035;
   }
   renderer.render(scene, camera);
   if (!paused && visible && !document.hidden) frame = requestAnimationFrame(render);
