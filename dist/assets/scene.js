@@ -1,44 +1,38 @@
 import * as THREE from '../vendor/three.module.min.js';
 
-export function mountScene(host) {
+export async function mountScene(host) {
  const canvas = host.querySelector('canvas');
  const button = host.querySelector('#motion-toggle');
  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+ const texture = await new THREE.TextureLoader().loadAsync('/assets/zucchini-mark.png');
+ texture.colorSpace = THREE.SRGBColorSpace;
  let renderer;
  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' }); }
- catch { return; }
+ catch { texture.dispose(); return; }
  renderer.setPixelRatio(Math.min(devicePixelRatio, innerWidth < 700 ? 1.5 : 2));
  renderer.outputColorSpace = THREE.SRGBColorSpace;
  renderer.toneMapping = THREE.ACESFilmicToneMapping;
- renderer.toneMappingExposure = 1.05;
+ renderer.toneMappingExposure = 1.45;
  const scene = new THREE.Scene();
  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 50);
  camera.position.set(0, 0.05, 8.5);
  const sculpture = new THREE.Group();
  scene.add(sculpture);
- // A faceted, curved golden zucchini — shaped to match the supplied wallet mark.
- const profile = [];
- for (let i = 0; i <= 28; i++) {
-  const t = i / 28;
-  const radius = i === 28 ? 0 : (0.18 + 0.67 * Math.pow(Math.sin(t * Math.PI * 0.78), 1.45)) * (t > .9 ? Math.sqrt((1-t)/.1) : 1);
-  profile.push(new THREE.Vector2(radius, 1.7 - t * 3.15));
- }
- const bodyGeometry = new THREE.LatheGeometry(profile.reverse(), 24);
- const positions = bodyGeometry.attributes.position;
- for (let i = 0; i < positions.count; i++) {
-  const t = (1.7 - positions.getY(i)) / 3.15;
-  positions.setX(i, positions.getX(i) + .52 * Math.sin(t * Math.PI * 1.12));
- }
- bodyGeometry.computeVertexNormals();
- const body = new THREE.Mesh(bodyGeometry, new THREE.MeshPhysicalMaterial({ color: 0xf4cb32, metalness: .08, roughness: .6, clearcoat: .12, clearcoatRoughness: .28, flatShading: true }));
- sculpture.add(body);
- const stem = new THREE.Mesh(new THREE.CylinderGeometry(.14, .2, .42, 7), new THREE.MeshStandardMaterial({ color: 0x3d6635, roughness: .72, flatShading: true }));
- stem.position.set(-.015, 1.87, 0); stem.rotation.z = .12; sculpture.add(stem);
- const collar = new THREE.Mesh(new THREE.CylinderGeometry(.19, .22, .15, 9), new THREE.MeshStandardMaterial({ color: 0x788a31, roughness: .6, flatShading: true }));
- collar.position.y = 1.68; sculpture.add(collar);
- sculpture.rotation.set(.07, -.28, .63);
- sculpture.position.set(-.2, .05, 0);
- sculpture.scale.setScalar(.78);
+ // Preserve the supplied brand artwork; the surrounding rings remain real 3D.
+ const artwork = new THREE.Mesh(
+  new THREE.PlaneGeometry(3.5, 3.5),
+  new THREE.MeshBasicMaterial({ map: texture, transparent: true, alphaTest: .05, toneMapped: false, side: THREE.DoubleSide })
+ );
+ sculpture.add(artwork);
+ sculpture.position.set(0, .05, 0);
+ const orbit = new THREE.Group(); scene.add(orbit);
+ const ringMaterial = new THREE.MeshStandardMaterial({ color: 0xc2c8a5, metalness: .65, roughness: .35, transparent: true, opacity: .53 });
+ const ring = new THREE.Mesh(new THREE.TorusGeometry(1.94, .018, 8, 180), ringMaterial);
+ ring.rotation.set(1.05, -.3, -.4); orbit.add(ring);
+ const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.12, .009, 8, 180), ringMaterial);
+ ring2.rotation.set(1.25, .6, .2); orbit.add(ring2);
+ const satellite = new THREE.Mesh(new THREE.IcosahedronGeometry(.1, 1), new THREE.MeshStandardMaterial({ color: 0xfce295, metalness: .6, roughness: .22 }));
+ satellite.position.set(-1.7, -.8, .35); orbit.add(satellite);
  scene.add(new THREE.HemisphereLight(0xfff9dc, 0x293121, 3));
  const key = new THREE.DirectionalLight(0xfff3d0, 6); key.position.set(-3, 5, 5); scene.add(key);
  const rim = new THREE.DirectionalLight(0xeaffc4, 3); rim.position.set(4, 2, -2); scene.add(rim);
@@ -53,9 +47,11 @@ export function mountScene(host) {
   lastTime = time;
   if (!paused && visible && !document.hidden) {
    elapsed += dt;
-   sculpture.rotation.y += ((-.28 + pointerX * .1 + Math.sin(elapsed*.25)*.03) - sculpture.rotation.y) * .045;
-   sculpture.rotation.x += ((pointerY * .06) - sculpture.rotation.x) * .045;
-   sculpture.position.y = .05 + Math.sin(elapsed*.6)*.035;
+   sculpture.rotation.y += ((pointerX * .08 + Math.sin(elapsed*.35)*.02) - sculpture.rotation.y) * .045;
+   sculpture.rotation.x += ((pointerY * .05) - sculpture.rotation.x) * .045;
+   sculpture.position.y = .05 + Math.sin(elapsed*.65)*.05;
+   orbit.rotation.y = Math.sin(elapsed*.2)*.1;
+   orbit.rotation.z = elapsed*.035;
   }
   renderer.render(scene, camera);
   if (!paused && visible && !document.hidden) frame = requestAnimationFrame(render);
@@ -87,7 +83,7 @@ export function mountScene(host) {
   reducedMotion.removeEventListener('change', preference); document.removeEventListener('visibilitychange', visibility);
   canvas.removeEventListener('webglcontextlost', loss);
   scene.traverse(object => { object.geometry?.dispose(); if (object.material) object.material.dispose(); });
-  renderer.dispose(); host.classList.remove('scene-ready'); button.hidden = true;
+  texture.dispose(); renderer.dispose(); host.classList.remove('scene-ready'); button.hidden = true;
  }
  resize(); updateButton(); host.classList.add('scene-ready');
  window.addEventListener('pagehide', event => { if (!event.persisted) dispose(); } );

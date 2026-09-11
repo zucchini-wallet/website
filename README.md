@@ -18,7 +18,7 @@ Open http://127.0.0.1:4180. Serve over HTTP; ES modules do not work by opening i
 ## Contents
 
 - `dist/index.html`: landing page with feature, workflow and extension sections.
-- `dist/assets/scene.js`: restrained, pointer-responsive Three.js sculpture, pause control, reduced-motion support, offscreen suspension and image fallback.
+- `dist/assets/scene.js`: supplied brand artwork surrounded by pointer-responsive Three.js orbit rings, pause control, reduced-motion support, offscreen suspension and image fallback.
 - `dist/privacy/`, `dist/terms/`: clearly marked draft legal pages.
 - `dist/404.html`: custom not-found page.
 - `dist/sitemap.xml`, `dist/robots.txt`, `dist/site.webmanifest`: indexing and browser metadata.
@@ -39,7 +39,7 @@ For the production domain, connect `zucchinifi.xyz` to the selected host, config
 
 ## Asset provenance
 
-The PNG brand mark and icons were supplied by the Zucchini extension repository (`web/apps/extension/public/icon-{512,32,128}.png`). The 3D sculpture is generated from geometry in this repository; no external model or texture is fetched. Three.js is distributed under its included MIT license. Fonts use system Arial/Helvetica and Georgia. No license to the Zucchini trademark is implied.
+The PNG brand mark and icons were supplied by the Zucchini extension repository (`web/apps/extension/public/icon-{512,32,128}.png`). The hero uses the supplied PNG on a plane with procedural 3D orbit rings; all textures and geometry are served locally. Three.js is distributed under its included MIT license. Fonts use system Arial/Helvetica and Georgia. No license to the Zucchini trademark is implied.
 
 ## Cloudflare Pages
 
