@@ -1,0 +1,291 @@
+{
+  "primary": "masters/primary/",
+  "alternate": "masters/alternate/",
+  "exports": [
+    {
+      "file": "extension/icon-16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "extension/icon-24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "file": "extension/icon-32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "extension/icon-48.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "file": "extension/icon-64.png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "file": "extension/icon-128.png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "file": "extension/icon-256.png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "extension/icon-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "mobile/ios/icon-20.png",
+      "width": 20,
+      "height": 20
+    },
+    {
+      "file": "mobile/ios/icon-29.png",
+      "width": 29,
+      "height": 29
+    },
+    {
+      "file": "mobile/ios/icon-40.png",
+      "width": 40,
+      "height": 40
+    },
+    {
+      "file": "mobile/ios/icon-58.png",
+      "width": 58,
+      "height": 58
+    },
+    {
+      "file": "mobile/ios/icon-60.png",
+      "width": 60,
+      "height": 60
+    },
+    {
+      "file": "mobile/ios/icon-76.png",
+      "width": 76,
+      "height": 76
+    },
+    {
+      "file": "mobile/ios/icon-80.png",
+      "width": 80,
+      "height": 80
+    },
+    {
+      "file": "mobile/ios/icon-87.png",
+      "width": 87,
+      "height": 87
+    },
+    {
+      "file": "mobile/ios/icon-120.png",
+      "width": 120,
+      "height": 120
+    },
+    {
+      "file": "mobile/ios/icon-152.png",
+      "width": 152,
+      "height": 152
+    },
+    {
+      "file": "mobile/ios/icon-167.png",
+      "width": 167,
+      "height": 167
+    },
+    {
+      "file": "mobile/ios/icon-180.png",
+      "width": 180,
+      "height": 180
+    },
+    {
+      "file": "mobile/ios/icon-1024.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "file": "mobile/android/legacy-48.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "file": "mobile/android/legacy-72.png",
+      "width": 72,
+      "height": 72
+    },
+    {
+      "file": "mobile/android/legacy-96.png",
+      "width": 96,
+      "height": 96
+    },
+    {
+      "file": "mobile/android/legacy-144.png",
+      "width": 144,
+      "height": 144
+    },
+    {
+      "file": "mobile/android/legacy-192.png",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "mobile/android/legacy-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "desktop/icon-16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "desktop/icon-24.png",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "file": "desktop/icon-32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "desktop/icon-48.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "file": "desktop/icon-64.png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "file": "desktop/icon-128.png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "file": "desktop/icon-256.png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "desktop/icon-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "desktop/icon-1024.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "file": "social/avatar-256.png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "social/avatar-400.png",
+      "width": 400,
+      "height": 400
+    },
+    {
+      "file": "social/avatar-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "social/avatar-1024.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "file": "website/icon-16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "website/icon-32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "website/icon-48.png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "file": "website/icon-180.png",
+      "width": 180,
+      "height": 180
+    },
+    {
+      "file": "website/icon-192.png",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "website/icon-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "website/zucchini-mark.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_16x16.png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_16x16@2x.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_32x32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_32x32@2x.png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_128x128.png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_128x128@2x.png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_256x256.png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_256x256@2x.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_512x512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "desktop/Zucchini.iconset/icon_512x512@2x.png",
+      "width": 1024,
+      "height": 1024
+    }
+  ]
+}
