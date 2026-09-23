@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require(process.env.SHARP_MODULE || 'sharp');
 const root = path.resolve(__dirname, '..');
-const mark = fs.readFileSync(path.join(root, 'branding/masters/primary/zucchini-app-icon.png')).toString('base64');
+const mark = fs.readFileSync(path.join(root, 'branding/masters/primary/zucchini-logo-transparent.png')).toString('base64');
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
 <defs><clipPath id="mascot"><rect x="706" y="112" width="410" height="410" rx="82"/></clipPath></defs>
 <rect width="1200" height="630" fill="#111a14"/>
@@ -17,9 +17,9 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.
 <text x="64" y="480" font-family="Arial" font-size="23" fill="#b8bfb0">Built for shielded payments.</text>
 <circle cx="906" cy="315" r="225" fill="none" stroke="#dce4b8" stroke-opacity=".08"/>
 <ellipse cx="906" cy="315" rx="216" ry="105" fill="none" stroke="#9fa785" stroke-width="2" transform="rotate(-30 906 315)"/>
-<image clip-path="url(#mascot)" x="706" y="112" width="410" height="410" xlink:href="data:image/png;base64,${mark}"/>
+<image x="706" y="112" width="410" height="410" xlink:href="data:image/png;base64,${mark}"/>
 <path d="M64 548 H1136" stroke="#ffffff" stroke-opacity=".12"/>
 <text x="64" y="591" font-family="Arial" font-size="18" fill="#a5aca0">Self-custody. Shielded payments. Open source.</text>
 <text x="1136" y="591" text-anchor="end" font-family="Arial" font-size="18" fill="#f3ce54">zucchinifi.xyz</text>
 </svg>`;
-sharp(Buffer.from(svg)).png().toFile(path.join(root, 'dist/assets/zucchini-social-v4.png')).then(info => console.log(`${info.width} × ${info.height}, ${info.size} bytes`));
+sharp(Buffer.from(svg)).png().toFile(path.join(root, 'dist/assets/zucchini-social-v5.png')).then(info => console.log(`${info.width} × ${info.height}, ${info.size} bytes`));

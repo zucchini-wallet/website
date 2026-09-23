@@ -1,0 +1,3 @@
+Generated with the built-in image generation tool, background-extraction edit of zucchini-app-icon.png.
+
+Prompt: Remove ONLY the deep forest green background, output actual transparent alpha PNG. Preserve the exact yellow mascot silhouette, green stem, two dark capsule eyes, orange cheeks, soft illustration shading, diagonal angle, scale and bottom/left cropped composition. Keep eyes opaque black and stem opaque green. No redesign, added features, shadows, backdrop or rounded icon tile. Preserve square canvas and mascot details. Transparent close-up logo for website branding and Apple Icon Composer foreground.

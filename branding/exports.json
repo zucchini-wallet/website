@@ -238,6 +238,36 @@
       "height": 1024
     },
     {
+      "file": "website/logo-transparent-32.png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "file": "website/logo-transparent-64.png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "file": "website/logo-transparent-128.png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "file": "website/logo-transparent-192.png",
+      "width": 192,
+      "height": 192
+    },
+    {
+      "file": "website/logo-transparent-512.png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "file": "website/logo-transparent-1024.png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
       "file": "desktop/Zucchini.iconset/icon_16x16.png",
       "width": 16,
       "height": 16

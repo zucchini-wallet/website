@@ -6,7 +6,7 @@ const root=__dirname,mark=fs.readFileSync(path.join(root,'masters/primary/zucchi
  await sharp(Buffer.from(svg)).png().toFile(path.join(root,`banners/${name}-${w}x${h}.png`));
  }
  const chunks=[];for(const [code,size] of [['icp4',16],['icp5',32],['ic07',128],['ic08',256],['ic09',512],['ic10',1024]]){
- const data=fs.readFileSync(path.join(root,`desktop/icon-${size}.png`));const header=Buffer.alloc(8);header.write(code);header.writeUInt32BE(data.length+8,4);chunks.push(header,data);
+ const data=fs.readFileSync(path.join(root,`desktop/Zucchini.iconset/icon_${size===1024?512:size}x${size===1024?512:size}${size===1024?'@2x':''}.png`));const header=Buffer.alloc(8);header.write(code);header.writeUInt32BE(data.length+8,4);chunks.push(header,data);
  }
  const head=Buffer.alloc(8);head.write('icns');head.writeUInt32BE(8+chunks.reduce((n,b)=>n+b.length,0),4);fs.writeFileSync(path.join(root,'desktop/zucchini.icns'),Buffer.concat([head,...chunks]));
 })();

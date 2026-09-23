@@ -5,6 +5,8 @@ const sharp=require(process.env.SHARP_MODULE||'sharp');
 const root=__dirname;
 const mark=path.join(root,'masters/primary/zucchini-mark.png');
 const icon=path.join(root,'masters/primary/zucchini-app-icon.png');
+const logo=path.join(root,'masters/primary/zucchini-logo-transparent.png');
+const macIcon=path.join(root,'apple/zucchini-macos-rounded-1024.png');
 const outputFiles=[];
 async function png(source,destination,size){
  const out=path.join(root,destination);fs.mkdirSync(path.dirname(out),{recursive:true});
@@ -19,6 +21,7 @@ async function png(source,destination,size){
  for(const size of [256,400,512,1024])await png(icon,`social/avatar-${size}.png`,size);
  for(const size of [16,32,48,180,192,512])await png(icon,`website/icon-${size}.png`,size);
  await png(mark,'website/zucchini-mark.png',1024);
+ for(const size of [32,64,128,192,512,1024])await png(logo,`website/logo-transparent-${size}.png`,size);
  // Windows ICO with PNG payloads, supporting current Windows releases.
  const sizes=[16,32,48,256];const buffers=await Promise.all(sizes.map(s=>fs.promises.readFile(path.join(root,`desktop/icon-${s}.png`))));
  const header=Buffer.alloc(6+16*sizes.length);header.writeUInt16LE(1,2);header.writeUInt16LE(sizes.length,4);let offset=header.length;
@@ -26,8 +29,8 @@ async function png(source,destination,size){
  fs.writeFileSync(path.join(root,'desktop/zucchini.ico'),Buffer.concat([header,...buffers]));
  // macOS iconset sources for iconutil.
  for(const size of [16,32,128,256,512]){
-  await png(icon,`desktop/Zucchini.iconset/icon_${size}x${size}.png`,size);
-  await png(icon,`desktop/Zucchini.iconset/icon_${size}x${size}@2x.png`,size*2);
+  await png(macIcon,`desktop/Zucchini.iconset/icon_${size}x${size}.png`,size);
+  await png(macIcon,`desktop/Zucchini.iconset/icon_${size}x${size}@2x.png`,size*2);
  }
  fs.writeFileSync(path.join(root,'exports.json'),JSON.stringify({primary:'masters/primary/',alternate:'masters/alternate/',exports:outputFiles},null,2)+'\n');
  console.log(`Exported ${outputFiles.length} PNGs and Windows ICO.`);
