@@ -14,7 +14,7 @@ async function png(source,destination,size){
  outputFiles.push({file:destination,width:size,height:size});
 }
 (async()=>{
- for(const size of [16,24,32,48,64,128,256,512])await png(icon,`extension/icon-${size}.png`,size);
+ for(const size of [16,24,32,48,64,128,256,512])await png(logo,`extension/icon-${size}.png`,size);
  for(const size of [20,29,40,58,60,76,80,87,120,152,167,180,1024])await png(icon,`mobile/ios/icon-${size}.png`,size);
  for(const size of [48,72,96,144,192,512])await png(icon,`mobile/android/legacy-${size}.png`,size);
  for(const size of [16,24,32,48,64,128,256,512,1024])await png(icon,`desktop/icon-${size}.png`,size);

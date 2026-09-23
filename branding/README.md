@@ -16,7 +16,7 @@ The previous smooth 3D logo is retained in `masters/alternate/3d-original/`; the
 
 ## Export library
 
-- `extension/`: square mascot PNGs at 16, 24, 32, 48, 64, 128, 256 and 512 px.
+- `extension/`: transparent mascot PNGs at 16, 24, 32, 48, 64, 128, 256 and 512 px.
 - `mobile/ios/`: opaque square PNG exports, including 1024 px store artwork.
 - `mobile/android/`: legacy density sizes and 512 px store artwork. Adaptive icon layers require integration with the app's platform asset configuration.
 - `desktop/`: 16–1024 px PNGs, Windows ICO, macOS ICNS and iconset source.
