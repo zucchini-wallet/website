@@ -12,12 +12,12 @@ async function png(source,destination,size){
  outputFiles.push({file:destination,width:size,height:size});
 }
 (async()=>{
- for(const size of [16,24,32,48,64,128,256,512])await png(mark,`extension/icon-${size}.png`,size);
+ for(const size of [16,24,32,48,64,128,256,512])await png(icon,`extension/icon-${size}.png`,size);
  for(const size of [20,29,40,58,60,76,80,87,120,152,167,180,1024])await png(icon,`mobile/ios/icon-${size}.png`,size);
  for(const size of [48,72,96,144,192,512])await png(icon,`mobile/android/legacy-${size}.png`,size);
  for(const size of [16,24,32,48,64,128,256,512,1024])await png(icon,`desktop/icon-${size}.png`,size);
  for(const size of [256,400,512,1024])await png(icon,`social/avatar-${size}.png`,size);
- for(const size of [16,32,48,180,192,512])await png(size===180?icon:mark,`website/icon-${size}.png`,size);
+ for(const size of [16,32,48,180,192,512])await png(icon,`website/icon-${size}.png`,size);
  await png(mark,'website/zucchini-mark.png',1024);
  // Windows ICO with PNG payloads, supporting current Windows releases.
  const sizes=[16,32,48,256];const buffers=await Promise.all(sizes.map(s=>fs.promises.readFile(path.join(root,`desktop/icon-${s}.png`))));

@@ -1,1 +1,15 @@
-{"name":"Zucchini","short_name":"Zucchini","start_url":"/","display":"browser","background_color":"#111410","theme_color":"#111410","icons":[{"src":"/assets/zucchini-mark-v2.png","sizes":"512x512","type":"image/png","purpose":"any"}]}
+{
+  "name": "Zucchini",
+  "short_name": "Zucchini",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#111a14",
+  "theme_color": "#111a14",
+  "icons": [
+    {
+      "src": "/assets/app-icon-v3-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -4,9 +4,9 @@ const fs = require('node:fs');
 const path = require('node:path');
 const sharp = require(process.env.SHARP_MODULE || 'sharp');
 const root = path.resolve(__dirname, '..');
-const mark = fs.readFileSync(path.join(root, 'dist/assets/zucchini-mark-v2.png')).toString('base64');
+const mark = fs.readFileSync(path.join(root, 'dist/assets/zucchini-mark-v3.png')).toString('base64');
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
-<rect width="1200" height="630" fill="#111410"/>
+<rect width="1200" height="630" fill="#111a14"/>
 <image x="60" y="42" width="42" height="42" xlink:href="data:image/png;base64,${mark}"/>
 <text x="112" y="73" font-family="Arial" font-size="32" font-weight="700" fill="#f2f4ec">zucchini<tspan fill="#f3ce54">.</tspan></text>
 <text x="64" y="150" font-family="Arial" font-size="15" letter-spacing="2" fill="#bfc5b8">MADE FOR ZCASH. BUILT FOR YOU.</text>
@@ -24,4 +24,4 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.
 <text x="64" y="591" font-family="Arial" font-size="18" fill="#a5aca0">Self-custody. Shielded payments. Open source.</text>
 <text x="1136" y="591" text-anchor="end" font-family="Arial" font-size="18" fill="#f3ce54">zucchinifi.xyz</text>
 </svg>`;
-sharp(Buffer.from(svg)).png().toFile(path.join(root, 'dist/assets/zucchini-social-v2.png')).then(info => console.log(`${info.width} × ${info.height}, ${info.size} bytes`));
+sharp(Buffer.from(svg)).png().toFile(path.join(root, 'dist/assets/zucchini-social-v3.png')).then(info => console.log(`${info.width} × ${info.height}, ${info.size} bytes`));

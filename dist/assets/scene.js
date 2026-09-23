@@ -4,7 +4,7 @@ export async function mountScene(host) {
  const canvas = host.querySelector('canvas');
  const button = host.querySelector('#motion-toggle');
  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
- const texture = await new THREE.TextureLoader().loadAsync('/assets/zucchini-mark-v2.png');
+ const texture = await new THREE.TextureLoader().loadAsync('/assets/zucchini-mark-v3.png');
  texture.colorSpace = THREE.SRGBColorSpace;
  let renderer;
  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' }); }
